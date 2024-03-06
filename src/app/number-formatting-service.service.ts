@@ -12,6 +12,12 @@ export class NumberFormattingService {
   });
 
   updateFinancialInput(input: string) {
+    if (!input) {
+      this.financialInputNum.set(0);
+      this.financialInputTypeSignal.set('');
+      return;
+    }
+    
     const parsedChar = input.slice(-1);
     let parsedNum: number = 0;
 
@@ -19,6 +25,10 @@ export class NumberFormattingService {
       parsedNum = parseFloat(input.toString().slice(0, -1));
     } else {
       parsedNum = parseFloat(input);
+    }
+
+    if (isNaN(parsedNum)) {
+      parsedNum = 0;
     }
     
     this.financialInputNum.set(parsedNum);
