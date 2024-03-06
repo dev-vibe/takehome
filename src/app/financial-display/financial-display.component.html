@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Transformed Financial Number:</h2>
+    <p *ngIf="formattedNumber; else loading" id="formatted-number"> ${{ formattedNumber }} </p> 
+    <!-- button that goes to the financial input page -->
+    <button  routerLink="/input">Go Back</button>
+    <ng-template #loading>No data yet...</ng-template>
+</div>

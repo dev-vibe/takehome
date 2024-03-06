@@ -1,0 +1,7 @@
+<form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+    <label for="numberInput">Enter financial number:</label>
+    <input type="text" id="numberInput" formControlName="numberInput" placeholder="e.g. 50k, 2.4m, 1.3b">
+    <div *ngIf="shouldDisplayError('numberInput', 'required')" class="error-required">Number is required.</div>
+    <div *ngIf="shouldDisplayError('numberInput', 'invalidFormat')" class="error-invalidFormat">Invalid format. Please enter number followed by a letter (e.g. 140k, 2.4m, etc.)</div>
+    <button type="submit">Submit</button>
+</form>
